@@ -1,6 +1,8 @@
 # Unique header generation
 require './lib/unique_head.rb'
 
+set :build_dir, 'docs'
+
 # Markdown
 set :markdown_engine, :redcarpet
 set :markdown,
@@ -37,6 +39,7 @@ end
 # Github pages require relative links
 activate :relative_assets
 set :relative_links, true
+
 
 # Build Configuration
 configure :build do
