@@ -70,11 +70,11 @@ As an example, displayed at the right is how to create a user access token. It s
 
 The following sections below show the various methods of creating the five types of access tokens:
 
-  * Creating a user access token
-  * Creating a player access token
-  * Creating a project access token
-  * Creating an anonymous access token
-  * Creating an admin access token
+  * [Creating a user access token](#create-user-token)
+  * [Creating a player access token](#create-player-token)
+  * [Creating a project access token](#create-project-token)
+  * [Creating an anonymous access token](#create-anon-token)
+  * [Creating an admin access token](#create-admin-token)
 
 <aside class="notice">
 These various methods use the same request method and authentication endpoint as described previously. They differ only on the JSON payload you include on your request body.

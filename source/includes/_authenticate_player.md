@@ -1,4 +1,4 @@
-## Creating a player access token
+<h2 id="create-player-token">Creating a player access token</h2>
 
 > Example Request
 

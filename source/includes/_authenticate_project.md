@@ -1,4 +1,4 @@
-## Creating a project access token
+<h2 id="create-project-token">Creating a project access token</h2>
 
 > Example Request
 

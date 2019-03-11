@@ -1,4 +1,4 @@
-## Creating an anonymous access token
+<h2 id="create-anon-token">Creating an anonymous access token</h2>
 
 > Example Request
 

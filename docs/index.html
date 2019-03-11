@@ -225,19 +225,19 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#creating-a-user-access-token" class="toc-h2 toc-link" data-title="Creating a user access token">Creating a user access token</a>
+                    <a href="#create-user-token" class="toc-h2 toc-link" data-title="Creating a user access token">Creating a user access token</a>
                   </li>
                   <li>
-                    <a href="#creating-a-player-access-token" class="toc-h2 toc-link" data-title="Creating a player access token">Creating a player access token</a>
+                    <a href="#create-player-token" class="toc-h2 toc-link" data-title="Creating a player access token">Creating a player access token</a>
                   </li>
                   <li>
-                    <a href="#creating-a-project-access-token" class="toc-h2 toc-link" data-title="Creating a project access token">Creating a project access token</a>
+                    <a href="#create-project-token" class="toc-h2 toc-link" data-title="Creating a project access token">Creating a project access token</a>
                   </li>
                   <li>
-                    <a href="#creating-an-anonymous-access-token" class="toc-h2 toc-link" data-title="Creating an anonymous access token">Creating an anonymous access token</a>
+                    <a href="#create-anon-token" class="toc-h2 toc-link" data-title="Creating an anonymous access token">Creating an anonymous access token</a>
                   </li>
                   <li>
-                    <a href="#creating-an-admin-access-token" class="toc-h2 toc-link" data-title="Creating an admin access token">Creating an admin access token</a>
+                    <a href="#create-admin-token" class="toc-h2 toc-link" data-title="Creating an admin access token">Creating an admin access token</a>
                   </li>
               </ul>
           </li>
@@ -320,17 +320,18 @@ Set <code>Content-Type</code> to <code>application/json</code></p>
 <p>The following sections below show the various methods of creating the five types of access tokens:</p>
 
 <ul>
-<li>Creating a user access token</li>
-<li>Creating a player access token</li>
-<li>Creating a project access token</li>
-<li>Creating an anonymous access token</li>
-<li>Creating an admin access token</li>
+<li><a href="#create-user-token">Creating a user access token</a></li>
+<li><a href="#create-player-token">Creating a player access token</a></li>
+<li><a href="#create-project-token">Creating a project access token</a></li>
+<li><a href="#create-anon-token">Creating an anonymous access token</a></li>
+<li><a href="#create-admin-token">Creating an admin access token</a></li>
 </ul>
 
 <aside class="notice">
 These various methods use the same request method and authentication endpoint as described previously. They differ only on the JSON payload you include on your request body.
 </aside>
-<h2 id='creating-a-user-access-token'>Creating a user access token</h2>
+<h2 id="create-user-token">Creating a user access token</h2>
+
 <blockquote>
 <p>Example Request</p>
 </blockquote>
@@ -447,7 +448,8 @@ These various methods use the same request method and authentication endpoint as
 <td style="text-align: left"><code>&quot;user&quot;</code></td>
 </tr>
 </tbody></table>
-<h2 id='creating-a-player-access-token'>Creating a player access token</h2>
+<h2 id="create-player-token">Creating a player access token</h2>
+
 <blockquote>
 <p>Example Request</p>
 </blockquote>
@@ -602,7 +604,8 @@ These various methods use the same request method and authentication endpoint as
 <td style="text-align: left">The time that the request was made.</td>
 </tr>
 </tbody></table>
-<h2 id='creating-a-project-access-token'>Creating a project access token</h2>
+<h2 id="create-project-token">Creating a project access token</h2>
+
 <blockquote>
 <p>Example Request</p>
 </blockquote>
@@ -682,7 +685,8 @@ These various methods use the same request method and authentication endpoint as
 <td style="text-align: left"><code>&quot;project&quot;</code></td>
 </tr>
 </tbody></table>
-<h2 id='creating-an-anonymous-access-token'>Creating an anonymous access token</h2>
+<h2 id="create-anon-token">Creating an anonymous access token</h2>
+
 <blockquote>
 <p>Example Request</p>
 </blockquote>
@@ -752,7 +756,8 @@ These various methods use the same request method and authentication endpoint as
 <td style="text-align: left"><code>&quot;anonymous&quot;</code></td>
 </tr>
 </tbody></table>
-<h2 id='creating-an-admin-access-token'>Creating an admin access token</h2>
+<h2 id="create-admin-token">Creating an admin access token</h2>
+
 <p><em>(Unfinished; I can&#39;t determine the right parameters to pass in the request body.)</em></p>
 
       </div>

@@ -1,4 +1,4 @@
-## Creating a user access token
+<h2 id="create-user-token">Creating a user access token</h2>
 
 > Example Request
 
