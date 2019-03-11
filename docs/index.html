@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>Forio Epicenter API Reference</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -211,7 +211,7 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="shell">cURL</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -223,27 +223,18 @@
           </li>
           <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#creating-a-user-access-token" class="toc-h2 toc-link" data-title="Creating a user access token">Creating a user access token</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#creating-a-project-access-token" class="toc-h2 toc-link" data-title="Creating a project access token">Creating a project access token</a>
                   </li>
               </ul>
           </li>
-          <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
-          </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
+            <li><a href='https://forio.com/epicenter/register'>Register for an Account in Forio</a></li>
             <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
@@ -251,198 +242,287 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Epicenter API!</p>
+<p>Welcome to the Forio Epicenter API!</p>
 <h1 id='authentication'>Authentication</h1>
 <blockquote>
-<p>To authorize, use this code:</p>
+<p>Example Request</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  https://test.forio.com/v3/epicenter/manager/authentication <span class="se">\</span>
+  --header <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  --data <span class="s1">'{
+  "handle": "john_doe@forio.com",
+  "password": "&lt;your account password&gt;",
+  "objectType": "user"
+}
 </span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Example Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="s2">"session"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLA0K....."</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-10T18:28:51.389Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expires"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"timeoutMinutes"</span><span class="p">:</span><span class="w"> </span><span class="mi">240</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"possibleTeamAccountShortNames"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"lakers"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"warriors"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"personalAccountShortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john_doe"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"userKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"userHandle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john_doe@forio.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<p>Authentication to the Epicenter API is done by making a request to the authentication endpoint and providing a valid authentication token (a JSON object) as part of the request body. Once authenticated, you&#39;ll be granted with a session-specific access token that you can then use to call any of our other APIs successfully.</p>
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
+<p>Our API provides five types of access tokens:</p>
+
+<ul>
+<li><p><strong>User access tokens</strong> are specific to an Epicenter author, team member, or end user. API calls using this kind of token have access to all of the data that the user has access to.</p></li>
+<li><p><strong>Player access tokens</strong></p></li>
+<li><p><strong>Project access tokens</strong> are created with the Public and Secret API keys for the project. API calls using this kind of token have access to all of the data in the project.</p></li>
+<li><p><strong>Admin access tokens</strong></p></li>
+<li><p><strong>Anonymous access tokens</strong>
+<br></p></li>
+</ul>
+
+<p>To authenticate, provide these settings as part of your request:</p>
+
+<p><strong>HTTP Request</strong><br>
+<code>POST /v3/epicenter/manager/authentication</code></p>
+
+<p><strong>Headers</strong><br>
+Set <code>Content-Type</code> to <code>application/json</code></p>
+
+<p><strong>Example request body</strong><br>
+<code>
+{
+  &quot;handle&quot;: &quot;john_doe@forio.com&quot;,
+  &quot;password&quot;: &quot;&lt;your account password&gt;&quot;,
+  &quot;objectType&quot;: &quot;user&quot;
+}
+</code></p>
+
+<p>A successful request returns a polymorphic JSON object based on the type of authentication token you&#39;ve provided.</p>
+
+<p>As an example, displayed at the right is how to create a user access token. It shows the parameters you need to include in your request body and the expected response object to be returned.</p>
+
+<p>The following sections below show the various methods of creating the five types of access tokens:</p>
+
+<ul>
+<li>Creating a user access token</li>
+<li>Creating a player access token</li>
+<li>Creating a project access token</li>
+<li>Creating an anonymous access token</li>
+<li>Creating an admin access token</li>
+</ul>
+
+<aside class="notice">
+These various methods use the same request method and authentication endpoint as described previously. They differ only on the JSON payload you include on your request body.
+</aside>
+<h2 id='creating-a-user-access-token'>Creating a user access token</h2>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  https://test.forio.com/v3/epicenter/manager/authentication <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+  "handle": "john_doe@forio.com",
+  "password": "&lt;your account password&gt;",
+  "objectType": "user",
+  "teamAccountShortName": "lakers"
+}
+</span></code></pre>
+<blockquote>
+<p>Example Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
+    </span><span class="s2">"session"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLA0K....."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-10T19:21:33.721Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expires"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timeoutMinutes"</span><span class="p">:</span><span class="w"> </span><span class="mi">240</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"teamAccountRole"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AUTHOR"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"personalAccountShortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john_doe"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"teamAccountShortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lakers"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"userKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000000000000000000000000000000000000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"userHandle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john_doe@forio.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+</span></code></pre><h3 id='request-body-parameters'>Request Body Parameters</h3><h3 id='required-parameters'><em>Required</em> parameters</h3>
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Description</th>
+<th style="text-align: left">Name /<em>type</em></th>
+<th style="text-align: left">Description /<em>example</em></th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td style="text-align: left">handle<br><em>string</em></td>
+<td style="text-align: left">Your account&#39;s email.</td>
+</tr>
+<tr>
+<td style="text-align: left">password<br><em>string</em></td>
+<td style="text-align: left">You account&#39;s password.</td>
+</tr>
+<tr>
+<td style="text-align: left">objectType<br><em>const</em></td>
+<td style="text-align: left">The string value <code>&quot;user&quot;</code>.</td>
 </tr>
 </tbody></table>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-<p>The Kittn API uses the following error codes:</p>
-
+<h3 id='optional-parameters'><em>Optional</em> parameters</h3>
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th style="text-align: left">Name /<em>type</em></th>
+<th style="text-align: left">Description /<em>example</em></th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
+<td style="text-align: left">teamAccountShortName<br><em>string</em></td>
+<td style="text-align: left">The short name of a ‘team’ account, i.e. a paying licensed account which may have more than one author (team member).<br>If you don&#39;t include this in your request, then all teams under the user are shown in the <code>possibleTeamAccountShortNames</code> attribute as part of the response.</td>
+</tr>
+</tbody></table>
+<h3 id='returns'>Returns</h3>
+<p>Returns a <a href="#userwhoami">UserWhoAmI</a> object.</p>
+
+<h3 id="userwhoami">The UserWhoAmI object</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name /<em>type</em></th>
+<th style="text-align: left">Description /<em>example</em></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">userHandle<br><em>string</em></td>
+<td style="text-align: left">The user’s chosen login name. It&#39;s usually your account&#39;s email.</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td style="text-align: left">personalAccountShortName<br><em>string</em></td>
+<td style="text-align: left">The short name of a ‘personal’ account, i.e., a free account with limitation provided to each person who signs up for Epicenter.</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td style="text-align: left">expires<br><em>boolean</em></td>
+<td style="text-align: left"><code>true</code> if the token/session has an expiry. Otherwise, <code>false</code>.</td>
 </tr>
 <tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td style="text-align: left">session<br><em>string</em></td>
+<td style="text-align: left">The generated specific access token.</td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+<td style="text-align: left">teamAccountRole<br><em>enum</em></td>
+<td style="text-align: left">The ‘role’ of an author on an account, which is either <code>&quot;AUTHOR&quot;</code> (a full team member) or <code>&quot;SUPPORT&quot;</code> (someone with lesser privileges in a customer support role).</td>
 </tr>
 <tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+<td style="text-align: left">possibleTeamAccountShortNames<br><em>array (string)</em></td>
+<td style="text-align: left">A list of account <code>shortNames</code> to which the user has rights (has roles for). Another authorization request should be sent with one of these accounts chosen.</td>
 </tr>
 <tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
+<td style="text-align: left">teamAccountShortName<br><em>string</em></td>
+<td style="text-align: left">The short name of a <code>team</code> account, i.e. a paying licensed account which may have more than one author (team member).</td>
 </tr>
 <tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
+<td style="text-align: left">timeoutMinutes<br><em>number</em></td>
+<td style="text-align: left">The number of minutes until the token expires.</td>
 </tr>
 <tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td style="text-align: left">userKey<br><em>string</em></td>
+<td style="text-align: left">The 36 character unique identifier for a user.</td>
 </tr>
 <tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+<td style="text-align: left">timestamp<br><em>string (DateTime)</em></td>
+<td style="text-align: left">The time that the request was made.</td>
 </tr>
 <tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td style="text-align: left">objectType<br><em>const</em></td>
+<td style="text-align: left"><code>&quot;user&quot;</code></td>
+</tr>
+</tbody></table>
+<h2 id='creating-a-project-access-token'>Creating a project access token</h2>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  https://test.forio.com/v3/epicenter/manager/authentication <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+  "secretKey": "&lt;your project'</span>s secret key&gt;<span class="s2">",
+  "</span>projectKey<span class="s2">": "</span>&lt;your project<span class="s1">'s public key&gt;",
+  "objectType": "project"
+}
+</span></code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"session"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLA0K....."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-10T22:54:02.314Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expires"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timeoutMinutes"</span><span class="p">:</span><span class="w"> </span><span class="mi">240</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"accountShortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"lakers"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"project"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='request-body-parameters'>Request Body Parameters</h3><h3 id='required-parameters'><em>Required</em> parameters</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">Name /<em>type</em></th>
+<th style="text-align: left">Description /<em>example</em></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">projectKey<br><em>string</em></td>
+<td style="text-align: left">The public key of a project. It&#39;s a part of the pair of API keys generated for each project.</td>
+</tr>
+<tr>
+<td style="text-align: left">secretKey<br><em>string</em></td>
+<td style="text-align: left">The secret key of a project. It&#39;s the matching pair of API keys generated for each project, and is needed together with the public key to generate an access token.</td>
+</tr>
+<tr>
+<td style="text-align: left">objectType<br><em>const</em></td>
+<td style="text-align: left">The string value <code>&quot;project&quot;</code>.</td>
+</tr>
+</tbody></table>
+<h3 id='returns'>Returns</h3>
+<p>Returns a <a href="#projectwhoami">ProjectWhoAmI</a> object.</p>
+
+<h3 id="projectwhoami">The ProjectWhoAmI object</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name /<em>type</em></th>
+<th style="text-align: left">Description /<em>example</em></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">expires<br><em>boolean</em></td>
+<td style="text-align: left"><code>true</code> if the token/session has an expiry. Otherwise, <code>false</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left">accountShortName<br><em>string</em></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">session<br><em>string</em></td>
+<td style="text-align: left">The generated specific access token.</td>
+</tr>
+<tr>
+<td style="text-align: left">timeoutMinutes<br><em>number</em></td>
+<td style="text-align: left">The number of minutes until the token expires.</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp<br><em>string (datetime)</em></td>
+<td style="text-align: left">The time that the request was made.</td>
+</tr>
+<tr>
+<td style="text-align: left">objectType<br><em>const</em></td>
+<td style="text-align: left"><code>&quot;project&quot;</code></td>
 </tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="shell">cURL</a>
           </div>
       </div>
     </div>
