@@ -228,7 +228,16 @@
                     <a href="#creating-a-user-access-token" class="toc-h2 toc-link" data-title="Creating a user access token">Creating a user access token</a>
                   </li>
                   <li>
+                    <a href="#creating-a-player-access-token" class="toc-h2 toc-link" data-title="Creating a player access token">Creating a player access token</a>
+                  </li>
+                  <li>
                     <a href="#creating-a-project-access-token" class="toc-h2 toc-link" data-title="Creating a project access token">Creating a project access token</a>
+                  </li>
+                  <li>
+                    <a href="#creating-an-anonymous-access-token" class="toc-h2 toc-link" data-title="Creating an anonymous access token">Creating an anonymous access token</a>
+                  </li>
+                  <li>
+                    <a href="#creating-an-admin-access-token" class="toc-h2 toc-link" data-title="Creating an admin access token">Creating an admin access token</a>
                   </li>
               </ul>
           </li>
@@ -254,8 +263,8 @@
   "handle": "john_doe@forio.com",
   "password": "&lt;your account password&gt;",
   "objectType": "user"
-}
-</span></code></pre>
+}'</span>
+</code></pre>
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -333,8 +342,8 @@ These various methods use the same request method and authentication endpoint as
   "password": "&lt;your account password&gt;",
   "objectType": "user",
   "teamAccountShortName": "lakers"
-}
-</span></code></pre>
+}'</span>
+</code></pre>
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -379,7 +388,7 @@ These various methods use the same request method and authentication endpoint as
 </thead><tbody>
 <tr>
 <td style="text-align: left">teamAccountShortName<br><em>string</em></td>
-<td style="text-align: left">The short name of a ‘team’ account, i.e. a paying licensed account which may have more than one author (team member).<br>If you don&#39;t include this in your request, then all teams under the user are shown in the <code>possibleTeamAccountShortNames</code> attribute as part of the response.</td>
+<td style="text-align: left">The short name of a ‘team’ account, i.e. a paying licensed account which may have more than one author (team member).<br><br>If you don&#39;t include this in your request, then all teams under the user are shown in the <code>possibleTeamAccountShortNames</code> attribute as part of the response.</td>
 </tr>
 </tbody></table>
 <h3 id='returns'>Returns</h3>
@@ -438,6 +447,161 @@ These various methods use the same request method and authentication endpoint as
 <td style="text-align: left"><code>&quot;user&quot;</code></td>
 </tr>
 </tbody></table>
+<h2 id='creating-a-player-access-token'>Creating a player access token</h2>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  https://test.forio.com/v3/epicenter/manager/authentication <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+  "handle": "janedoe2",
+  "password": "janedoe2",
+  "accountShortName": "bucks",
+  "objectType": "player"
+}'</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"session"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLA0K....."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-11T07:14:26.728Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expires"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timeoutMinutes"</span><span class="p">:</span><span class="w"> </span><span class="mi">240</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"groupRole"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FACILITATOR"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"assignedWorldKeys"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"assignedWorldRoles"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"playerKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000001695b47f0062c8286372ac03aa98794"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"playerHandle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"janedoe2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pseudonymKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000001695b47f0062c8286372ac03aa98794"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pseudonymHandle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"janedoe2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"accountShortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bucks"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"projectShortName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cleanup"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"groupName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"starting-five"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"groupKey"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000001695b47f0062c8286372ac03aa9871e"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"player"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='request-body-parameters'>Request Body Parameters</h3><h3 id='required-parameters'><em>Required</em> parameters</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">Name /<em>type</em></th>
+<th style="text-align: left">Description /<em>example</em></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">handle<br><em>string</em></td>
+<td style="text-align: left">The end user&#39;s/player&#39;s username.</td>
+</tr>
+<tr>
+<td style="text-align: left">password<br><em>string</em></td>
+<td style="text-align: left">The player&#39;s password.</td>
+</tr>
+<tr>
+<td style="text-align: left">accountShortName<br><em>string</em></td>
+<td style="text-align: left">The team under which the player belongs.</td>
+</tr>
+<tr>
+<td style="text-align: left">objectType<br><em>const</em></td>
+<td style="text-align: left">The string value <code>&quot;player&quot;</code>.</td>
+</tr>
+</tbody></table>
+<h3 id='optional-parameters'><em>Optional</em> parameters</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">Name /<em>type</em></th>
+<th style="text-align: left">Description /<em>example</em></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">modality<br><em>enum</em></td>
+<td style="text-align: left">A value of either <code>[&quot;NONE&quot;, &quot;HBP&quot;, &quot;ICC&quot;]</code></td>
+</tr>
+<tr>
+<td style="text-align: left">groupKey<br><em>string</em></td>
+<td style="text-align: left">The 36 character unique identifier for a group.</td>
+</tr>
+</tbody></table>
+<h3 id='returns'>Returns</h3>
+<p>Returns a <a href="#playerwhoami">PlayerWhoAmI</a> object.</p>
+
+<h3 id="playerwhoami">The PlayerWhoAmI object</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name /<em>type</em></th>
+<th style="text-align: left">Description /<em>example</em></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">projectShortName<br><em>string</em></td>
+<td style="text-align: left">The short name of the project the player belongs.</td>
+</tr>
+<tr>
+<td style="text-align: left">possibleGroupKeys<br><em>array (string)</em></td>
+<td style="text-align: left">A list of <code>groupKeys</code> to which a player has rights (has roles for). Another authorization request should be sent with one of these groups chosen.</td>
+</tr>
+<tr>
+<td style="text-align: left">expires<br><em>boolean</em></td>
+<td style="text-align: left"><code>true</code> if the token/session has an expiry. Otherwise, <code>false</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left">accountShortName<br><em>string</em></td>
+<td style="text-align: left">The short name of the team the player belongs.</td>
+</tr>
+<tr>
+<td style="text-align: left">assignedWorldKeys<br><em>array (string)</em></td>
+<td style="text-align: left">A list of worldKeys (36 character unique identifier for a world) to which a user is assigned in their chosen group (normally only one, but could be more).</td>
+</tr>
+<tr>
+<td style="text-align: left">session<br><em>string</em></td>
+<td style="text-align: left">The generated specific access token.</td>
+</tr>
+<tr>
+<td style="text-align: left">playerHandle<br><em>string</em></td>
+<td style="text-align: left">The player’s chosen login name.</td>
+</tr>
+<tr>
+<td style="text-align: left">assignedWorldRoles<br><em>array (string)</em></td>
+<td style="text-align: left">A list of roles the user has for the simulation instance in each world. This should be the same length of list as the assigned <code>worldKeys</code> and is a one to one mapping, i.e., for each world key in the assigned world key list, there will be an entry which is the user’s role in that world. Unlike the other roles (<code>accountRole</code> and <code>groupRole</code>) the world role provides no permissions, has no meaning in the Epicenter APIs, and can be different for every simulation.</td>
+</tr>
+<tr>
+<td style="text-align: left">timeoutMinutes<br><em>number</em></td>
+<td style="text-align: left">The number of minutes until the token expires.</td>
+</tr>
+<tr>
+<td style="text-align: left">groupKey<br><em>string</em></td>
+<td style="text-align: left">The 36 character unique identifier for a group.</td>
+</tr>
+<tr>
+<td style="text-align: left">groupRole<br><em>enum</em></td>
+<td style="text-align: left">The ‘role’ of a player in the classroom group, which can be one of <code>&quot;FACILITATOR&quot;</code> (the instructor for the class) or <code>&quot;PARTICIPANT&quot;</code> (a player of a simulation).</td>
+</tr>
+<tr>
+<td style="text-align: left">objectType<br><em>const</em></td>
+<td style="text-align: left"><code>&quot;player&quot;</code></td>
+</tr>
+<tr>
+<td style="text-align: left">groupName<br><em>string</em></td>
+<td style="text-align: left">The name of a group (a descriptive name with no spaces, no punctuation, all lower case).</td>
+</tr>
+<tr>
+<td style="text-align: left">playerKey<br><em>string</em></td>
+<td style="text-align: left">The 36 character unique ID of a player.</td>
+</tr>
+<tr>
+<td style="text-align: left">pseudonymKey<br><em>string</em></td>
+<td style="text-align: left">The 36 character unique ID of a player’s pseudonym (a pseudonymizing entity for GDPR compliance, it’s the player’s pseudonym which links them to all their data).</td>
+</tr>
+<tr>
+<td style="text-align: left">pseudonymHandle<br><em>string</em></td>
+<td style="text-align: left">The player’s chosen online display name, so we can provide an identity for each player who is not connected to their real personally identifying information (for GDPR compliance).</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp<br><em>string (DateTime)</em></td>
+<td style="text-align: left">The time that the request was made.</td>
+</tr>
+</tbody></table>
 <h2 id='creating-a-project-access-token'>Creating a project access token</h2>
 <blockquote>
 <p>Example Request</p>
@@ -449,8 +613,8 @@ These various methods use the same request method and authentication endpoint as
   "secretKey": "&lt;your project'</span>s secret key&gt;<span class="s2">",
   "</span>projectKey<span class="s2">": "</span>&lt;your project<span class="s1">'s public key&gt;",
   "objectType": "project"
-}
-</span></code></pre>
+}'</span>
+</code></pre>
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -499,7 +663,7 @@ These various methods use the same request method and authentication endpoint as
 </tr>
 <tr>
 <td style="text-align: left">accountShortName<br><em>string</em></td>
-<td style="text-align: left"></td>
+<td style="text-align: left">The team under which the project belongs.</td>
 </tr>
 <tr>
 <td style="text-align: left">session<br><em>string</em></td>
@@ -518,6 +682,78 @@ These various methods use the same request method and authentication endpoint as
 <td style="text-align: left"><code>&quot;project&quot;</code></td>
 </tr>
 </tbody></table>
+<h2 id='creating-an-anonymous-access-token'>Creating an anonymous access token</h2>
+<blockquote>
+<p>Example Request</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  https://test.forio.com/v3/epicenter/manager/authentication <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+  "anonymous_key": "even a blank string works!",
+  "objectType": "anonymous"
+}'</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"session"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJ0eXAiOiJKV1QiLA0K....."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-11T17:06:57.419Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expires"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"timeoutMinutes"</span><span class="p">:</span><span class="w"> </span><span class="mi">240</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"objectType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anonymous"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='request-body-parameters'>Request Body Parameters</h3><h3 id='required-parameters'><em>Required</em> parameters</h3>
+<table><thead>
+<tr>
+<th style="text-align: left">Name /<em>type</em></th>
+<th style="text-align: left">Description /<em>example</em></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">anonymous_key<br><em>string</em></td>
+<td style="text-align: left">Any string value is acceptable. Even an empty string is allowed.</td>
+</tr>
+<tr>
+<td style="text-align: left">objectType<br><em>const</em></td>
+<td style="text-align: left">The string value <code>&quot;anonymous&quot;</code>.</td>
+</tr>
+</tbody></table>
+<h3 id='returns'>Returns</h3>
+<p>Returns a <a href="#anonymouswhoami">AnonymousWhoAmI</a> object.</p>
+
+<h3 id="anonymouswhoami">The AnonymousWhoAmI object</h3>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Name /<em>type</em></th>
+<th style="text-align: left">Description /<em>example</em></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">expires<br><em>boolean</em></td>
+<td style="text-align: left"><code>true</code> if the token/session has an expiry. Otherwise, <code>false</code>.</td>
+</tr>
+<tr>
+<td style="text-align: left">session<br><em>string</em></td>
+<td style="text-align: left">The generated specific access token.</td>
+</tr>
+<tr>
+<td style="text-align: left">timeoutMinutes<br><em>number</em></td>
+<td style="text-align: left">The number of minutes until the token expires.</td>
+</tr>
+<tr>
+<td style="text-align: left">timestamp<br><em>string (datetime)</em></td>
+<td style="text-align: left">The time that the request was made.</td>
+</tr>
+<tr>
+<td style="text-align: left">objectType<br><em>const</em></td>
+<td style="text-align: left"><code>&quot;anonymous&quot;</code></td>
+</tr>
+</tbody></table>
+<h2 id='creating-an-admin-access-token'>Creating an admin access token</h2>
+<p><em>(Unfinished; I can&#39;t determine the right parameters to pass in the request body.)</em></p>
 
       </div>
       <div class="dark-box">
